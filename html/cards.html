@@ -5,27 +5,27 @@
 <div id="filter-bar">
 <select id="filter-area" onchange="filterProjects()">
     <option value="">All Areas</option>
-    <option value="Statistical">Statistical interpretation</option>
+    <option value="">RNTuple & I/O</option>
+    <!-- <option value="Statistical">Statistical interpretation</option> -->
     <option value="Python">Python Interface</option>
-    <option value="Documentation">Documentation and outreach</option>
+    <!-- <option value="Documentation">Documentation and outreach</option> -->
     <option value="Compiler">Compiler technology</option>
-    <option value="Automation">Automation</option>
-    <option value="Machine">Machine Learning and Artificial Intelligence</option>
-    <option value="Teaching">Teaching</option>
-    <option value="build">Continuous integration and build system</option>
-    <option value="platforms">RNew platforms</option>
-    <option value="reflection">Type system and reflection</option>
-    <option value="Data">Data analysis</option>
-    <option value="Distributed">Distributed systems</option>
-    <option value="Visualisation">Visualisation and graphics</option>
+    <!-- <option value="Automation">Automation</option> -->
+    <!-- <option value="Machine">Machine Learning and Artificial Intelligence</option> -->
+    <!-- <option value="Teaching">Teaching</option> -->
+    <!-- <option value="build">Continuous integration and build system</option> -->
+    <!-- <option value="platforms">New platforms</option> -->
+    <!-- <option value="reflection">Type system and reflection</option> -->
+    <!-- <option value="Data">Data analysis</option> -->
+    <!-- <option value="Distributed">Distributed systems</option> -->
+    <!-- <option value="Visualisation">Visualisation and graphics</option> -->
 </select>
 
 <select id="filter-skill" onchange="filterProjects()">
     <option value="">All Skills</option>
     <option value="C++">C++</option>
     <option value="Python">Python</option>
-    <option value="ML">Machine Learning</option>
-    <option value="C++">ROOT</option>
+    <option value="C++">C++</option>
 </select>
 
 <select id="filter-duration" onchange="filterProjects()">
@@ -51,7 +51,7 @@
 <span class="skill-badge">HTTP</span>
 </div>
 <p class="responsible"><strong>Responsible:</strong> Jakob Blomer</p>
-<p class="target"><strong>Target:</strong>Master Thesis / Tech / ATLAS Quali Task (perhaps related to ATLAS cloud R&D)</p>
+<p class="target"><strong>Target:</strong> Master Thesis / Tech / ATLAS Quali Task (perhaps related to ATLAS cloud R&D)</p>
 <p class="duration">6-12 months</p>
 <p class="areas" style="display:none;"><strong>ROOT areas:</strong> RNTuple, I/O</p>
 <div class="scope" style="display:none;"><strong>Scope:</strong> <p>The RNTuple I/O provides the data format and basic storage stack for HL-LHC data. It has been designed to allow for exchangeable storage backends, including file system access, XRootD access, and object stores. Proof-of-concept implementations for DAOS and S3 object stores exist but have not been further pursued. The goal of this project is to develop a robust (pre-release quality) implementation for storing RNTuple data in S3, the standard cloud storage protocol. In particular, the project needs to design and implement a URL scheme to address RNTuple objects and an efficient HTTP base layer to access objects and byte ranges. The project should include benchmarks comparing S3 to XRootD and remote file system access in the same data center (e.g., using the AGC benchmark), and a benchmark measuring the effect of network latency to end-to-end performance.</p></div>
@@ -100,7 +100,7 @@
 <span class="skill-badge">Thread-safety</span>
 </div>
 <p class="responsible"><strong>Responsible:</strong> Jonas Rembser</p>
-<p class="target"><strong>Target:</strong>GSoC student</p>
+<p class="target"><strong>Target:</strong> GSoC student</p>
 <p class="duration">3 months</p>
 <p class="areas" style="display:none;"><strong>ROOT areas:</strong> Python Interface, Compiler Technology</p>
 <div class="scope" style="display:none;"><strong>Scope:</strong> 
@@ -127,7 +127,7 @@
 <span class="skill-badge">C++</span>
 </div>
 <p class="responsible"><strong>Responsible:</strong> Jonas Rembser</p>
-<p class="target"><strong>Target:</strong>Summer student or master thesis</p>
+<p class="target"><strong>Target:</strong> Summer student or master thesis</p>
 <p class="duration">3-4 months</p>
 <p class="areas" style="display:none;"><strong>ROOT areas:</strong> Statistical Interpretation</p>
 <div class="scope" style="display:none;"><strong>Scope:</strong> 
@@ -162,8 +162,8 @@
 <span class="skill-badge">Cling</span>
 <span class="skill-badge">ROOT</span>
 </div>
-<p class="responsible"><strong>Responsible:</strong>-</p>
-<p class="target"><strong>Target:</strong>GSoC Student</p>
+<p class="responsible"><strong>Responsible:</strong> -</p>
+<p class="target"><strong>Target:</strong> GSoC Student</p>
 <p class="duration">3-4 months</p>
 <p class="areas" style="display:none;"><strong>ROOT areas:</strong> Compiler Technology</p>
 <div class="scope" style="display:none;"><strong>Scope:</strong> <p>The LHC smashes groups of protons together at close to the speed of light: 40 million times per second and with seven times the energy of the most powerful accelerators built up to now. Many of these will just be glancing blows but some will be head on collisions and very energetic. When this happens some of the energy of the collision is turned into mass and previously unobserved, short-lived particles – which could give clues about how Nature behaves at a fundamental level - fly out and into the detector. Our work includes the experimental discovery of the Higgs boson, which leads to the award of a Nobel prize for the underlying theory that predicted the Higgs boson as an important piece of the standard model theory of particle physics.
@@ -197,8 +197,8 @@
 <span class="skill-badge">Cling</span>
 <span class="skill-badge">cppyy</span>
 </div>
-<p class="responsible"><strong>Responsible:</strong>-</p>
-<p class="target"><strong>Target:</strong>GSoC Student</p>
+<p class="responsible"><strong>Responsible:</strong> -</p>
+<p class="target"><strong>Target:</strong> GSoC Student</p>
 <p class="duration">3-4 months</p>
 <p class="areas" style="display:none;"><strong>ROOT areas:</strong> Compiler Technology</p>
 <div class="scope" style="display:none;"><strong>Scope:</strong> <p>Incremental compilation pipelines process code chunk-by-chunk by building an ever-growing translation unit. Code is then lowered into the LLVM IR and subsequently run by the LLVM JIT. Such a pipeline allows creation of efficient interpreters. The interpreter enables interactive exploration and makes the C++ language more user friendly. The incremental compilation mode is used by the interactive C++ interpreter, Cling, initially developed to enable interactive high-energy physics analysis in a C++ environment.
@@ -235,30 +235,8 @@
 </div>
 </section>
 
-<!-- ================================== -->
-<section class="root-area">
-<h2 class="area-title">Contact Us</h2>
-
-<section id="contact" class="contact-section">
-<h2>Contribute a Project Idea!</h2>
-<p>If you have an idea for a ROOT project, submit it here!</p>
-
-<form id="contact-form" action="mailto:silia.taider@cern.ch" method="POST" enctype="text/plain">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required placeholder="Your name">
-
-    <label for="email">Email</label>
-    <input type="email" id="email" name="_replyto" required placeholder="example@domain.com">
-
-    <label for="project">Project Idea</label>
-    <textarea id="project" name="project" rows="5" required placeholder="Describe your project"></textarea>
-
-    <button type="submit">Submit</button>
-</form>
-</section>
 </div>
 </section>
-
 <!-- ================================== -->
 
 <div id="project-modal" class="modal">
