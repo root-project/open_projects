@@ -1,0 +1,358 @@
+<div id="search-container">
+<input type="text" id="search-input" placeholder="Search by keyword (e.g., Python, ML, I/O)" onkeyup="filterProjects()">
+</div>
+
+<div id="filter-bar">
+<select id="filter-area" onchange="filterProjects()">
+    <option value="">All Areas</option>
+    <option value="Statistical">Statistical interpretation</option>
+    <option value="Python">Python Interface</option>
+    <option value="Documentation">Documentation and outreach</option>
+    <option value="Compiler">Compiler technology</option>
+    <option value="Automation">Automation</option>
+    <option value="Machine">Machine Learning and Artificial Intelligence</option>
+    <option value="Teaching">Teaching</option>
+    <option value="build">Continuous integration and build system</option>
+    <option value="platforms">RNew platforms</option>
+    <option value="reflection">Type system and reflection</option>
+    <option value="Data">Data analysis</option>
+    <option value="Distributed">Distributed systems</option>
+    <option value="Visualisation">Visualisation and graphics</option>
+</select>
+
+<select id="filter-skill" onchange="filterProjects()">
+    <option value="">All Skills</option>
+    <option value="C++">C++</option>
+    <option value="Python">Python</option>
+    <option value="ML">Machine Learning</option>
+    <option value="C++">ROOT</option>
+</select>
+
+<select id="filter-duration" onchange="filterProjects()">
+    <option value="">All Durations</option>
+    <option value="short">≤ 6 months</option>
+    <option value="medium">6–12 months</option>
+    <option value="long">> 12 months</option>
+</select>
+</div>
+
+
+<main class="project-section" id="projects">
+<!-- ================================== -->
+
+<section class="root-area">
+<h2 class="area-title">RNTuple & I/O</h2>
+<div class="project-grid">
+
+<div class="project-card">
+<h3>S3 Backend for RNTuple</h3>
+<div class="skills">
+<span class="skill-badge">C++</span>
+<span class="skill-badge">HTTP</span>
+</div>
+<p class="responsible"><strong>Responsible:</strong> Jakob Blomer</p>
+<p class="target"><strong>Target:</strong>Master Thesis / Tech / ATLAS Quali Task (perhaps related to ATLAS cloud R&D)</p>
+<p class="duration">6-12 months</p>
+<p class="areas" style="display:none;"><strong>ROOT areas:</strong> RNTuple, I/O</p>
+<div class="scope" style="display:none;"><strong>Scope:</strong> <p>The RNTuple I/O provides the data format and basic storage stack for HL-LHC data. It has been designed to allow for exchangeable storage backends, including file system access, XRootD access, and object stores. Proof-of-concept implementations for DAOS and S3 object stores exist but have not been further pursued. The goal of this project is to develop a robust (pre-release quality) implementation for storing RNTuple data in S3, the standard cloud storage protocol. In particular, the project needs to design and implement a URL scheme to address RNTuple objects and an efficient HTTP base layer to access objects and byte ranges. The project should include benchmarks comparing S3 to XRootD and remote file system access in the same data center (e.g., using the AGC benchmark), and a benchmark measuring the effect of network latency to end-to-end performance.</p></div>
+
+</div>
+
+<div class="project-card">
+<h3>Graceful crash recovery of RNTuple write streams</h3>
+<div class="skills">
+<span class="skill-badge">C++</span>
+</div>
+<p class="responsible"><strong>Responsible:</strong> Jakob Blomer</p>
+<p class="target"><strong>Target:</strong> Master Thesis / Tech</p>
+<p class="duration">12 months</p>
+<p class="areas" style="display:none;"><strong>ROOT areas:</strong> RNTuple, I/O</p>
+<div class="scope" style="display:none;"><strong>Scope:</strong> <p>The RNTuple I/O provides the data format and basic storage stack for HL-LHC data. Its current use include analysis and reconstruction workflows, with some early prototyping of data acquisition use cases. For data acquisition in particular, where failing jobs cannot simply be restarted, the capability to recover written data after an unexpected termination of the writer process is critical. The RNTuple design allows for that feature provided that a snapshot of the meta-data (the on-disk location of pages) is regularly flushed to disk (not only at the end). The project should design and implement a mechanism to automatically flush a consistent state of the meta-data during writing at a location that can be located after a crash (e.g., a well-known byte offset such as every 100MB). An extensive test suite should be developed alongside the feature.</p></div>
+
+</div>
+
+<div class="project-card">
+<h3>Abstract Object Access in ROOT Schema Evolution</h3>
+<div class="skills">
+<span class="skill-badge">C++</span>
+</div>
+<p class="responsible"><strong>Responsible:</strong> Jakob Blomer</p>
+<p class="target"><strong>Target:</strong> Grad</p>
+<p class="duration">18-24 months</p>
+<p class="areas" style="display:none;"><strong>ROOT areas:</strong> RNTuple, I/O</p>
+<p class="scope" style="display:none;"><strong>Scope:</strong> The ROOT schema evolution system enables users to define I/O customization rules that map on-disk types to their evolved versions in-memory. A limitation of the current approach is the fact that the on-disk information (e.g., class members) need to be accessed in the form of existing C++ types. Effectively, that may require users of complex event data models to preserve the history of the class layouts. This project aims at developing an extension to the ROOT schema evolution that allows access to on-disk classes in an abstract way, as a combination of PoDs, abstract records and abstract collections. As a result, certain schema evolution cases related to the change of class shapes (e.g., moving data members in the class hierarchy) should be greatly simplified.</p>
+
+</div>
+</div>
+</section>
+
+<!-- ================================== -->
+
+<section class="root-area">
+<h2 class="area-title">Python Interface</h2>
+<div class="project-grid">
+
+<div class="project-card">
+<h3>ROOT in free-threaded Python</h3>
+<div class="skills">
+<span class="skill-badge">CPython</span>
+<span class="skill-badge">Cling</span>
+<span class="skill-badge">Thread-safety</span>
+</div>
+<p class="responsible"><strong>Responsible:</strong> Jonas Rembser</p>
+<p class="target"><strong>Target:</strong>GSoC student</p>
+<p class="duration">3 months</p>
+<p class="areas" style="display:none;"><strong>ROOT areas:</strong> Python Interface, Compiler Technology</p>
+<div class="scope" style="display:none;"><strong>Scope:</strong> 
+<ul>
+    <li>
+        <strong>Description with motivation:</strong> Free-threaded (aka. “GIL-less”) Python is available since Python 3.13, and marked as non-experimental with Python 3.14. It could become the default one day. Most libraries in the Python ecosystem make an effort to support free-threaded Python builds to improve the performance of multithreaded code. Supporting free-threading is a challenge for Python modules that ship their own CPython extensions, such as ROOT. However, ROOT users would greatly benefit from true multithreading at the Python level, so they don’t have to implement thread management on the C++ level on top of ROOT (e.g. with std::thread). Therefore, supporting free-threaded Python builds could make ROOT user code more performance while staying “pythonic”. Another clear advantage is that multiple C++ threads can call back into Python functions concurrently, which has applications in RDataFrame or RooFit
+    </li>
+    <li>
+        <strong>Scope and objective:</strong> The objective is to make the ROOT Python interface work with free-threaded Python builds, initially by putting locks in the ROOT side where required. To test and demonstrate, code examples should be written and benchmarked. The stretch goal is to update ROOT such that more of the interpreter infrastructure is thread-safe so locks can be gradually avoided.
+    </li>
+    <li>
+        <strong>Suggested skills and experience:</strong> This is for a person who is ready to deep-dive into CPython extensions and learn also about Cling to understand thread-safety in ROOT.
+    </li>
+</ul>
+</div>
+</div>
+
+<div class="project-card">
+<h3>W-mass analysis with RooFit</h3>
+<div class="skills">
+<span class="skill-badge">Physics</span>
+<span class="skill-badge">Statistical Analysis</span>
+<span class="skill-badge">Python</span>
+<span class="skill-badge">C++</span>
+</div>
+<p class="responsible"><strong>Responsible:</strong> Jonas Rembser</p>
+<p class="target"><strong>Target:</strong>Summer student or master thesis</p>
+<p class="duration">3-4 months</p>
+<p class="areas" style="display:none;"><strong>ROOT areas:</strong> Statistical Interpretation</p>
+<div class="scope" style="display:none;"><strong>Scope:</strong> 
+<ul>
+    <li>
+        <strong>Description with motivation:</strong> the recent W-mass measurement by CMS uses a custom fitting framework for binned likelihood fits, called rabbit (https://github.com/WMass/rabbit). It is optimized for binned likelihood fits with template models in the limit of large statistics, using automatic differentiation and minimizers other than Minuit 2 (which is used by RooFit). However, these specialized frameworks are often a problem for combined fits where other measurements are expressed in RooFit. Therefore, we would like to understand what RooFit is missing to support the W-mass analysis use-case with satisfactory performance, which should inspire several improvements in RooFit.
+    </li>
+    <li>
+        <strong>Scope and objective:</strong> The rabbit framework provides public test examples in its repository, inspired by the W-mass measurement. These examples should be implemented in RooFit to compare performance and usability. For a fair comparison, the RooFit likelihood should also be minimized with the scipy minimizers that rabbit uses, and vice versa (rabbit likelihood with Minuit 2). This conveniently stress-tests the pythonizations of both RooFit and Minuit 2. The outcome should be a concise analysis of the differences in implementation and performance, including recommendations to RooFit developers how to reduce performance differences. The stretch goal is to implement these optimizations in RooFit itself.
+    </li>
+    <li>
+        <strong>Suggested skills and experience:</strong> Physics student with solid knowledge of statistical analysis and Python. C++ would be a bonus.
+    </li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================================== -->
+<section class="root-area">
+<h2 class="area-title">Compiler Technology</h2>
+<div class="project-grid">
+
+<div class="project-card">
+<h3>Improve robustness of dictionary to module lookups in ROOT</h3>
+<div class="skills">
+<span class="skill-badge">Clang</span>
+<span class="skill-badge">LLVM</span>
+<span class="skill-badge">Cling</span>
+<span class="skill-badge">ROOT</span>
+</div>
+<p class="responsible"><strong>Responsible:</strong>-</p>
+<p class="target"><strong>Target:</strong>GSoC Student</p>
+<p class="duration">3-4 months</p>
+<p class="areas" style="display:none;"><strong>ROOT areas:</strong> Compiler Technology</p>
+<div class="scope" style="display:none;"><strong>Scope:</strong> <p>The LHC smashes groups of protons together at close to the speed of light: 40 million times per second and with seven times the energy of the most powerful accelerators built up to now. Many of these will just be glancing blows but some will be head on collisions and very energetic. When this happens some of the energy of the collision is turned into mass and previously unobserved, short-lived particles – which could give clues about how Nature behaves at a fundamental level - fly out and into the detector. Our work includes the experimental discovery of the Higgs boson, which leads to the award of a Nobel prize for the underlying theory that predicted the Higgs boson as an important piece of the standard model theory of particle physics.
+</p>
+<p>CMS is a particle detector that is designed to see a wide range of particles and phenomena produced in high-energy collisions in the LHC. Like a cylindrical onion, different layers of detectors measure the different particles, and use this key data to build up a picture of events at the heart of the collision. The CMSSW is a collection of software for the CMS experiment. It is responsible for the collection and processing of information about the particle collisions at the detector. CMSSW uses the ROOT framework to provide support for data storage and processing. ROOT relies on Cling, Clang, LLVM for building automatically efficient I/O representation of the necessary C++ objects. The I/O properties of each object is described in a compileable C++ file called a /dictionary/. ROOT’s I/O dictionary system relies on C++ modules to improve the overall memory footprint when being used.</p>
+<p>The few run time failures in the modules integration builds of CMSSW are due to dictionaries that can not be found in the modules system. These dictionaries are present as the mainstream system is able to find them using a broader search. The modules setup in ROOT needs to be extended to include a dictionary extension to track dictionary<->module mappings for C++ entities that introduce synonyms rather than declarations (<code>using std::vector&lt;A&lt;B&gt;&gt; = MyVector</code> where the dictionaries of A, B are elsewhere).</p>
+<strong>Task ideas and expected results:</strong>
+<ul>
+    <li>
+        If an alias declaration of kind using <code>using std::vector&lt;A&lt;B&gt;&gt; = MyVector</code>, we should store the ODRHash of it in the respective dictionary file as a number attached to a special variable which can be retrieved at symbol scanning time. 
+    </li>
+    <li>
+        Track down the test failures of CMSSW and check if the proposed implementation works.
+    </li>
+    <li>
+        Develop tutorials and documentation.
+    </li>
+    <li>
+        Present the work at the relevant meetings and conferences.
+    </li>
+</ul>
+</div>
+</div>
+
+
+<div class="project-card">
+<h3>Implement CppInterOp API exposing memory, ownership and thread safety information</h3>
+<div class="skills">
+<span class="skill-badge">Clang</span>
+<span class="skill-badge">LLVM</span>
+<span class="skill-badge">Cling</span>
+<span class="skill-badge">cppyy</span>
+</div>
+<p class="responsible"><strong>Responsible:</strong>-</p>
+<p class="target"><strong>Target:</strong>GSoC Student</p>
+<p class="duration">3-4 months</p>
+<p class="areas" style="display:none;"><strong>ROOT areas:</strong> Compiler Technology</p>
+<div class="scope" style="display:none;"><strong>Scope:</strong> <p>Incremental compilation pipelines process code chunk-by-chunk by building an ever-growing translation unit. Code is then lowered into the LLVM IR and subsequently run by the LLVM JIT. Such a pipeline allows creation of efficient interpreters. The interpreter enables interactive exploration and makes the C++ language more user friendly. The incremental compilation mode is used by the interactive C++ interpreter, Cling, initially developed to enable interactive high-energy physics analysis in a C++ environment.
+</p>
+<p>Clang and LLVM provide access to C++ from other programming languages, but currently only exposes the declared public interfaces of such C++ code even when it has parsed implementation details directly. Both the high-level and the low-level program representation has enough information to capture and expose more of such details to improve language interoperability. Examples include details of memory management, ownership transfer, thread safety, externalized side-effects, etc. For example, if memory is allocated and returned, the caller needs to take ownership; if a function is pure, it can be elided; if a call provides access to a data member, it can be reduced to an address lookup.
+</p>
+<p>The goal of this project is to develop an API for CppInterOp which is capable of extracting and exposing such information AST or from JIT-ed code and use it in cppyy (Python-C++ language bindings) as an exemplar. If time permits, extend the work to persistify this information across translation units and use it on code compiled with Clang.
+</p>
+<strong>Task ideas and expected results:</strong>
+    <ul>
+        <li>
+            Collect and categorize possible exposed interop information kinds.
+        </li>
+        <li>
+            Write one or more facilities to extract necessary implementation details.
+        </li>
+        <li>
+            Design a language-independent interface to expose this information.
+        </li>
+        <li>
+            Integrate the work in clang-repl and Cling.
+        </li>
+        <li>
+            Implement and demonstrate its use in cppyy as an exemplar.
+        </li>
+        <li>
+            Present the work at the relevant meetings and conferences.
+        </li>
+    </ul>
+</div>
+</div>
+
+
+</div>
+</section>
+
+<!-- ================================== -->
+<section class="root-area">
+<h2 class="area-title">Contact Us</h2>
+
+<section id="contact" class="contact-section">
+<h2>Contribute a Project Idea!</h2>
+<p>If you have an idea for a ROOT project, submit it here!</p>
+
+<form id="contact-form" action="mailto:silia.taider@cern.ch" method="POST" enctype="text/plain">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required placeholder="Your name">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="_replyto" required placeholder="example@domain.com">
+
+    <label for="project">Project Idea</label>
+    <textarea id="project" name="project" rows="5" required placeholder="Describe your project"></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+</section>
+</div>
+</section>
+
+<!-- ================================== -->
+
+<div id="project-modal" class="modal">
+<div class="modal-content">
+<span class="close">&times;</span>
+<h3 id="modal-title"></h3>
+<div id="modal-skills"></div>
+<p class="duration" id="modal-duration"></p>
+<p id="modal-responsible"></p>
+<p id="modal-target"></p>
+<p id="modal-areas"></p>
+<p id="modal-scope"></p>
+</div>
+</div>
+
+</main>
+
+<script>
+function filterProjects() {
+    const keyword = document.getElementById("search-input")?.value.toLowerCase() || "";
+    const areaFilter = document.getElementById("filter-area")?.value.toLowerCase() || "";
+    const skillFilter = document.getElementById("filter-skill")?.value.toLowerCase() || "";
+    const durationFilter = document.getElementById("filter-duration")?.value || "";
+
+    const cards = document.querySelectorAll(".project-card");
+
+    cards.forEach(card => {
+        const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+        const skills = Array.from(card.querySelectorAll(".skill-badge"))
+                            .map(b => b.textContent.toLowerCase());
+        const duration = card.querySelector(".duration")?.textContent.toLowerCase() || "";
+        const areaSection = card.closest(".root-area")?.querySelector("h2")?.textContent.toLowerCase() || "";
+
+        let visible = true;
+
+        if (keyword && !title.includes(keyword) &&
+            !skills.some(s => s.includes(keyword))) visible = false;
+        if (areaFilter && !areaSection.includes(areaFilter)) visible = false;
+        if (skillFilter && !skills.includes(skillFilter)) visible = false;
+
+        if (durationFilter) {
+            if (durationFilter === "short" && !duration.includes("3–6")) visible = false;
+            if (durationFilter === "medium" && !duration.includes("6–12")) visible = false;
+            if (durationFilter === "long" && !duration.match(/12|18|24/)) visible = false;
+        }
+
+        card.style.display = visible ? "block" : "none";
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const modal = document.getElementById("project-modal");
+const modalTitle = document.getElementById("modal-title");
+const modalSkills = document.getElementById("modal-skills");
+const modalDuration = document.getElementById("modal-duration");
+const modalResponsible = document.getElementById("modal-responsible");
+const modalTarget = document.getElementById("modal-target");
+const modalAreas = document.getElementById("modal-areas");
+const modalScope = document.getElementById("modal-scope");
+const closeBtn = document.querySelector(".modal .close");
+
+document.querySelectorAll(".project-card").forEach(card => {
+  card.addEventListener("click", () => {
+    modalTitle.textContent = card.querySelector("h3")?.textContent || "";
+    modalSkills.innerHTML = card.querySelector(".skills")?.innerHTML || "";
+    modalDuration.textContent = card.querySelector(".duration").textContent;
+    modalResponsible.innerHTML = card.querySelector(".responsible")?.innerHTML || "";
+    modalTarget.innerHTML = card.querySelector(".target")?.innerHTML || "";
+    modalAreas.innerHTML = card.querySelector(".areas")?.innerHTML || "";
+    modalScope.innerHTML = card.querySelector(".scope")?.innerHTML || "";
+
+    modal.style.display = "block";
+  });
+});
+
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = e => { if (e.target == modal) modal.style.display = "none"; }
+
+});
+</script>
+
+
+<footer>
+    <img src="assets/images/root_logo.png" alt="ROOT Logo" style="height: 30px;">
+    <img src="assets/images/ep_sft_logo.png" alt="EP-SFT Logo" style="height: 60px;">
+    <span>ROOT Open Projects | 2025</span>
+</footer>
