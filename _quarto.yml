@@ -2,7 +2,7 @@ project:
   type: website
 website:
   title: >-
-    <img src="assets/images/root_logo.png" alt="ROOT Logo" style="height:35px;
+    <img src="assets/images/root_logo_cyan.png" alt="ROOT Logo" style="height:35px;
     vertical-align:middle;">
   description: Opportunities for collaboration and contributions with the ROOT Core Team
   repo-url: 'https://github.com/root-project/open_projects'
@@ -22,10 +22,10 @@ website:
       - icon: github
         href: 'https://github.com/root-project/root'
       - icon: envelope
-        href: 'mailto:Danilo.Piparo@cern.ch'
+        href: 'mailto:root-dev@cern.ch'
 format:
   html:
-    theme: kournal
+    theme: cosmo
     css: css/style.css
     toc: false
     smooth-scroll: true
