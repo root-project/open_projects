@@ -17,8 +17,6 @@ website:
         href: index.html
       - text: Projects
         href: 'index.html#projects'
-      - text: Contact
-        href: 'index.html#contact'
       - icon: github
         href: 'https://github.com/root-project/root'
       - icon: envelope
