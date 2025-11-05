@@ -1,9 +1,9 @@
 ---
 title: ROOT Open Projects
 subtitle: Opportunities for collaboration and contributions
-date: 04-11-2025
+date: 05-11-2025
 date-format: short
-date-modified: 04-11-2025
+date-modified: 05-11-2025
 ---
 
 {{< include html/cards.html >}}
