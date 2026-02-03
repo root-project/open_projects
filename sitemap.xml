@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://root-project.github.io/open_projects/projects/w-mass-analysis-with-roofit.html</loc>
+    <lastmod>2026-02-03T12:50:18.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://root-project.github.io/open_projects/projects/root-in-free-threaded-python.html</loc>
+    <lastmod>2026-02-03T12:50:18.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://root-project.github.io/open_projects/projects/implement-cppinterop-api-exposing-memory-ownership-and-thread-safety-information.html</loc>
+    <lastmod>2026-02-03T12:50:18.044Z</lastmod>
+  </url>
+  <url>
+    <loc>https://root-project.github.io/open_projects/projects/abstract-object-access-in-root-schema-evolution.html</loc>
+    <lastmod>2026-02-03T12:50:18.041Z</lastmod>
+  </url>
+  <url>
     <loc>https://root-project.github.io/open_projects/index.html</loc>
-    <lastmod>2025-11-05T11:01:25.509Z</lastmod>
+    <lastmod>2026-02-03T12:50:13.375Z</lastmod>
+  </url>
+  <url>
+    <loc>https://root-project.github.io/open_projects/projects/graceful-crash-recovery-of-rntuple-write-streams.html</loc>
+    <lastmod>2026-02-03T12:50:18.040Z</lastmod>
+  </url>
+  <url>
+    <loc>https://root-project.github.io/open_projects/projects/improve-robustness-of-dictionary-to-module-lookups-in-root.html</loc>
+    <lastmod>2026-02-03T12:50:18.043Z</lastmod>
+  </url>
+  <url>
+    <loc>https://root-project.github.io/open_projects/projects/s3-backend-for-rntuple.html</loc>
+    <lastmod>2026-02-03T12:50:18.040Z</lastmod>
   </url>
 </urlset>
