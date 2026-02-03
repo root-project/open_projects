@@ -1,14 +1,18 @@
 project:
   type: website
+  render:
+    - index.qmd
+    - projects/*.qmd
+
 website:
+  site-url: https://root-project.github.io/open_projects/
   title: >-
-    <img src="assets/images/root_logo_cyan.png" alt="ROOT Logo" style="height:35px;
-    vertical-align:middle;">
+    <img src="assets/images/root_logo_cyan.png" alt="" style="height:35px; vertical-align:middle;">
   description: Opportunities for collaboration and contributions with the ROOT Core Team
   repo-url: 'https://github.com/root-project/open_projects'
   navbar:
     brand:
-      image: assets/images/root_logo.png
+      image: assets/images/root_logo_cyan.png
       text: ROOT Open Projects
       href: index.html
     type: default
@@ -21,6 +25,7 @@ website:
         href: 'https://github.com/root-project/root'
       - icon: envelope
         href: 'mailto:root-dev@cern.ch'
+
 format:
   html:
     theme: cosmo

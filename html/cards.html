@@ -5,7 +5,7 @@
 <div id="filter-bar">
 <select id="filter-area" onchange="filterProjects()">
     <option value="">All Areas</option>
-    <option value="">RNTuple & I/O</option>
+    <option value="RNTuple">RNTuple & I/O</option>
     <!-- <option value="Statistical">Statistical interpretation</option> -->
     <option value="Python">Python Interface</option>
     <!-- <option value="Documentation">Documentation and outreach</option> -->
@@ -44,7 +44,7 @@
 <h2 class="area-title">RNTuple & I/O</h2>
 <div class="project-grid">
 
-<div class="project-card">
+<div class="project-card" data-slug="s3-backend-for-rntuple">
 <h3>S3 Backend for RNTuple</h3>
 <div class="skills">
 <span class="skill-badge">C++</span>
@@ -58,7 +58,7 @@
 
 </div>
 
-<div class="project-card">
+<div class="project-card" data-slug="graceful-crash-recovery-of-rntuple-write-streams">
 <h3>Graceful crash recovery of RNTuple write streams</h3>
 <div class="skills">
 <span class="skill-badge">C++</span>
@@ -71,7 +71,7 @@
 
 </div>
 
-<div class="project-card">
+<div class="project-card" data-slug="abstract-object-access-in-root-schema-evolution">
 <h3>Abstract Object Access in ROOT Schema Evolution</h3>
 <div class="skills">
 <span class="skill-badge">C++</span>
@@ -92,7 +92,7 @@
 <h2 class="area-title">Python Interface</h2>
 <div class="project-grid">
 
-<div class="project-card">
+<div class="project-card" data-slug="root-in-free-threaded-python">
 <h3>ROOT in free-threaded Python</h3>
 <div class="skills">
 <span class="skill-badge">CPython</span>
@@ -118,7 +118,7 @@
 </div>
 </div>
 
-<div class="project-card">
+<div class="project-card" data-slug="w-mass-analysis-with-roofit">
 <h3>W-mass analysis with RooFit</h3>
 <div class="skills">
 <span class="skill-badge">Physics</span>
@@ -154,7 +154,7 @@
 <h2 class="area-title">Compiler Technology</h2>
 <div class="project-grid">
 
-<div class="project-card">
+<div class="project-card" data-slug="improve-robustness-of-dictionary-to-module-lookups-in-root">
 <h3>Improve robustness of dictionary to module lookups in ROOT</h3>
 <div class="skills">
 <span class="skill-badge">Clang</span>
@@ -189,7 +189,7 @@
 </div>
 
 
-<div class="project-card">
+<div class="project-card" data-slug="implement-cppinterop-api-exposing-memory-ownership-and-thread-safety-information">
 <h3>Implement CppInterOp API exposing memory, ownership and thread safety information</h3>
 <div class="skills">
 <span class="skill-badge">Clang</span>
@@ -242,6 +242,7 @@
 <div id="project-modal" class="modal">
 <div class="modal-content">
 <span class="close">&times;</span>
+<p><a id="modal-share-link" href="#" target="_blank" rel="noopener" class="project-link-btn">Open project page ↗</a></p>
 <h3 id="modal-title"></h3>
 <div id="modal-skills"></div>
 <p class="duration" id="modal-duration"></p>
@@ -288,15 +289,6 @@ function filterProjects() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
-        });
-    });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
 
 const modal = document.getElementById("project-modal");
 const modalTitle = document.getElementById("modal-title");
@@ -318,6 +310,15 @@ document.querySelectorAll(".project-card").forEach(card => {
     modalAreas.innerHTML = card.querySelector(".areas")?.innerHTML || "";
     modalScope.innerHTML = card.querySelector(".scope")?.innerHTML || "";
 
+    const slug = card.dataset.slug;
+    const shareLink = document.getElementById("modal-share-link");
+    if (shareLink && slug) {
+      shareLink.href = `projects/${slug}.html`;
+      shareLink.style.display = "inline";
+    } else if (shareLink) {
+      shareLink.style.display = "none";
+    }
+
     modal.style.display = "block";
   });
 });
@@ -326,6 +327,7 @@ closeBtn.onclick = () => modal.style.display = "none";
 window.onclick = e => { if (e.target == modal) modal.style.display = "none"; }
 
 });
+
 </script>
 
 
