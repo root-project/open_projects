@@ -25,7 +25,7 @@ jobs:
         run: python -m pip install --upgrade pip beautifulsoup4
 
       - name: Generate static project pages
-        run: python tools/generate_projects.py
+        run: python tools/generate_project_pages.py
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
