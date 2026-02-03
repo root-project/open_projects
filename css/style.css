@@ -272,3 +272,45 @@ h2.subtitle {
   padding: 0;
   text-align: left;
 }
+
+.project-link-btn {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0d458a;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 2px solid #ffffff;
+  transition: all 0.2s ease;
+}
+
+.project-link-btn:hover {
+  background: transparent;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.project-link-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+}
+
+.project-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.project-detail .duration{
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.project-detail .skills {
+  display: block !important;
+  text-align: center !important;
+}
